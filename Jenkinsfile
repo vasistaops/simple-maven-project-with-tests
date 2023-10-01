@@ -9,8 +9,6 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                // clean the workspace
-                cleanWs()
                 // Get some code from a GitHub repository
                 //git 'https://github.com/vasistaops/simple-maven-project-with-tests.git'
                 sh "git clone https://github.com/vasistaops/simple-maven-project-with-tests.git"
@@ -31,6 +29,8 @@ pipeline {
                     junit '**/target/surefire-reports/TEST-*.xml'
                     archiveArtifacts 'target/*.jar'
                 }
+                // clean the workspace
+                cleanWs()
             }
         }
     }
