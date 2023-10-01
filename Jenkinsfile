@@ -31,9 +31,9 @@ pipeline {
                     junit '**/target/surefire-reports/TEST-*.xml'
                     archiveArtifacts 'target/*.jar'
                 }
-                always {
-                    deleteDir()
-                }
+                // always {
+                //     deleteDir()
+                // }
             }
         }
     }
